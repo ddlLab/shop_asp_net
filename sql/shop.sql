@@ -17,6 +17,7 @@ CREATE TABLE Salers
 	saler_id			BIGINT IDENTITY(1,1),
 	saler_nickname		VARCHAR(50)		NOT NULL,
 	saler_email			VARCHAR(100)	NOT NULL,
+	saler_password		VARCHAR(100)	NOT NULL,
 	saler_phone			VARCHAR(50)		NOT NULL,
 	saler_photo			VARCHAR(100)	NOT NULL DEFAULT(''),
 	saler_desc			VARCHAR(2048)	NOT NULL DEFAULT(''),
@@ -50,6 +51,7 @@ CREATE TABLE Clients
 (
 	client_id			BIGINT IDENTITY(1,1),
 	client_email		VARCHAR(100)	NOT NULL,
+	client_password		VARCHAR(100)	NOT NULL,
 	client_nickname		VARCHAR(50)		NOT NULL,
 	client_phone		VARCHAR(50)		NOT NULL,
 	client_photo		VARCHAR(100)	NOT NULL DEFAULT(''),
@@ -88,6 +90,7 @@ CREATE TABLE Admins
 (
 	admin_id			BIGINT IDENTITY(1,1),
 	admin_email			VARCHAR(100)	NOT NULL,
+	admin_password		VARCHAR(100)	NOT NULL,
 	admin_nickname		VARCHAR(50)		NOT NULL,
 	is_superadmin		BIT				NOT NULL DEFAULT 0,
 
