@@ -11,10 +11,10 @@ namespace testproj
     {
         public static SqlConnection GetDBConnection()
         {
-            string datasource = @"DESKTOP-HIEQ37A\SQLEXPRESS";
+            string datasource = @"DESKTOP-ORP9I23\SQLEXPRESS";
 
-            string database = "service";
-            string username = @"qwerty";
+            string database = "shop";
+            string username = @"dich";
             string password = "11qqAAzz";
 
             return DBSQLServerUtils.GetDBConnection(datasource, database, username, password);

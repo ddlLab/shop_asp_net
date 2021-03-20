@@ -21,7 +21,7 @@ namespace testproj
             {
                 SelectAllUsers test = new SelectAllUsers(connection);
                 test.Execute();
-                Console.WriteLine(string.Join(",", test.users));
+                Console.WriteLine(string.Join("\n", test.users));
             }
             catch (Exception e)
             {
@@ -63,7 +63,8 @@ namespace testproj
 
         static void Main(string[] args)
         {
-            SendAuthCode("sasha.agratina@gmail.com", "123456");
+            SelectSample();
+         //   SendAuthCode("sasha.agratina@gmail.com", "123456");
         }
 
         public static  bool SendAuthCode(string email, string code)
