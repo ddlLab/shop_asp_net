@@ -22,5 +22,9 @@ namespace WebApplication1.Controllers
             response.result = RegisterStartAck.Result.OK;
             return response;
         }
+
+        //todo: register finish - alex
+        //todo: setup card in controller UserSettingsController - alex
+        //todo: login in controller LoginController -dima
     }
 }

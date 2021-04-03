@@ -139,7 +139,6 @@ namespace testproj
 
     }
 
-`    
     class SelectUserByEmail : QueryBase
     {
         public SelectUserByEmail(string _email, SqlConnection _sqlConnection)
