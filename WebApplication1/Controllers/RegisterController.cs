@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using protocol;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace WebApplication1.Controllers
 {
     [Route("api/register")]
@@ -23,8 +21,14 @@ namespace WebApplication1.Controllers
             return response;
         }
 
-        //todo: register finish - alex
-        //todo: setup card in controller UserSettingsController - alex
-        //todo: login in controller LoginController -dima
+        [Route("register-finish")]
+        [HttpPost]
+        public RegisterFinishAck Post([FromBody] RegisterFinishReq request)
+        {
+            RegisterFinishAck response = new RegisterFinishAck();
+            response.user_id = 42;
+            response.result = RegisterFinishAck.Result.FAIL;
+            return response;
+        }
     }
 }

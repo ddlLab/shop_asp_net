@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using protocol;
 
 namespace WebApplication1.Controllers
@@ -12,10 +13,9 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class UserSettingsController : ControllerBase
     {
-        [Route("api/user-card")]
+        [Route("setupcard")]
         [HttpPost]
-
-        public SetupCardAck Post([FromBody] SetupCardReq setupRequest)
+        public SetupCardAck Post([FromBody] SetupCardReq request)
         {
             SetupCardAck response = new SetupCardAck();
             response.type = 1;
