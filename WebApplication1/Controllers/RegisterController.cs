@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
     {
         [Route("register-start")]
         [HttpPost]
-        public RegisterStartAck Post([FromBody] RegisterStartReq requuest)
+        public RegisterStartAck Post([FromBody] RegisterStartReq request)
         {
             RegisterStartAck response = new RegisterStartAck();
             response.id = 100500;
