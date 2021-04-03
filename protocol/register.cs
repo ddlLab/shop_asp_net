@@ -4,27 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace protokol
+namespace protocol
 {
     public class RegisterStartReq
     {
-       public bool type { get; set; }
-       public string email { get; set; }
-       public string pass { get; set; }
-       public string nick { get; set; }
+        public bool    type    { get; set; }
+        public string  email   { get; set; }
+        public string  pass    { get; set; }
+        public string  nick    { get; set; }
     }
+
     public class RegisterStartAck
     {
         public enum Result
-        {            
-             EMAIL_NOT_FOUND      =  -4,
-             BAD_REQUEST          =  -3,
-             NON_UNIQUE_EMAIL     =  -2,
-             NON_UUNIQUE_NICKNAME =  -1,
-             OK                   =   0 
+        {
+            EMAIL_NOT_FOUND     = -4,
+            BAD_REQUEST         = -3,
+            NON_UNIQUE_EMAIL    = -2,
+            NON_UNIQUE_NICKNAME = -1,
+            OK                  = 0
         }
-        public int id { get; set; } = -1;
-        public Result result { get; set; }
+        public int      id      { get; set; } = -1;
+        public Result   result  { get; set; }
     }
     public class RegisterFinishReq
     {
@@ -33,12 +34,12 @@ namespace protokol
     }
     public class RegisterFinishAck
     {
-        public int user_id { get; set; }
-        public enum Result
+		public enum Result
         {
             FAIL = -1,
             OK = 0
         }
+        public int user_id { get; set; }
         public Result result { get; set; }
     }
     public class LoginReq
@@ -49,13 +50,13 @@ namespace protokol
     }
     public class LoginAck
     {
-        public int user_id { get; set; }// = RegisterStartAck.id;
-        public enum Result
+		public enum Result
         {
             FAIL_INVALID_PASS = -2,
             FAIL_EMAIL_NOT_FOUND = -1,
             SUCCESS = 0
         }
+        public int user_id { get; set; }// = RegisterStartAck.id;        
         public Result result { get; set; }
     }
     public class SetupCardReq
@@ -66,12 +67,12 @@ namespace protokol
     }
     public class SetupCardAck
     {
-        public bool type { get; set; }
-        public enum Result
+	    public enum Result
         {
             FAIL = -1,
             OK = 0
         }
+        public bool type { get; set; }
         public Result result { get; set; }
     }
 
