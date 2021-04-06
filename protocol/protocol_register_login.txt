@@ -1,0 +1,66 @@
+Регистрация пользователя в системе
+
+Clent|Saler
+RegisterStartReq
+{
+	"type": 0|1 //1-Saler,//0-Client
+	"email" : "###@##.##",
+	"pass": "8*#"
+	"nick": ">=2#" 
+}
+
+RegisterStartAck
+{
+	"id": null or digit
+	"result": digit
+}
+result:
+-4 - EMAIL NOT FOUND
+-3 - Bad Request
+-2 - Non Unique email
+-1 - Non Unique nickname
+0  - OK
+
+RegisterFinishReq
+{
+	"type": 0|1 //1-Saler,//0-Client
+	"code": 6sym
+}
+
+RegisterFinishAck
+{
+	"user_id": id in table client|saler
+	"result": OK(0) | FAIL(-1)
+}
+
+LoginReq
+{
+	"type": 0|1 //1-Saler,//0-Client
+	"email" : "###@##.##",
+	"pass": "8*#"
+}
+
+LoginAck
+{
+	"user_id": id in table client|saler
+	"result": OK(0)
+}
+-2 - FAIL_INVALID_PASS
+-1 - FAIL_EMAIL_NOT_FOUND
+0 - SUCCESS
+
+SetupCardReq
+{
+	"type": 0|1 //1-Saler,//0-Client
+	"user_id" :
+	"card" : ""
+}
+
+SetupCardAck
+{
+	"type": 0|1 //1-Saler,//0-Client
+	"result": OK(0)
+}
+
+
+

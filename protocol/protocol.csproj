@@ -49,5 +49,8 @@
     <Compile Include="reset_pass.cs" />
     <Compile Include="user_settings_msgs.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="protocol_register_login.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
