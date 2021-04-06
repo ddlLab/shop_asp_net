@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "..\WebAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "protokol", "..\protokol\protokol.csproj", "{94225C93-AD3D-471F-8195-391D0CF812DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protocol", "..\..\..\Users\akate\source\repos\Protocol\Protocol.csproj", "{86D90864-3441-43C2-8AAA-721192F2A81E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{94225C93-AD3D-471F-8195-391D0CF812DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94225C93-AD3D-471F-8195-391D0CF812DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94225C93-AD3D-471F-8195-391D0CF812DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86D90864-3441-43C2-8AAA-721192F2A81E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86D90864-3441-43C2-8AAA-721192F2A81E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86D90864-3441-43C2-8AAA-721192F2A81E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86D90864-3441-43C2-8AAA-721192F2A81E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
