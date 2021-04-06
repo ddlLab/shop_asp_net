@@ -9,6 +9,7 @@ namespace protocol
     public class PassResetReq
     {
         public int type { get; set; }
+        public int user_id { get; set; }
         public string new_pass { get; set; }
     }
 
@@ -16,12 +17,10 @@ namespace protocol
     {
         public enum Result
         {
-            SUCCESS_PASS_WAS_CHANGED=0,
-            FAIL_OLD_PASS_WAS_PRINTED=-1,
-            FAIL_INCORRECT_SYNTAX=-2,
-            FAIL_PASSWORD_WASNT_CHANGED=-3
+            FAIL_NEW_PASS_SAME_AS_OLD = -3,
+            FAIL_INCORRECT_PASS = -2,
+            SUCCESS = 0
         }
-        public int type { get; set; }
         public Result result { get; set; }
     }
 }

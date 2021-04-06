@@ -19,11 +19,11 @@ namespace protocol
             FAIL_INCORRECT_NAME = -1,
             SUCCESS = 0
         }     
-        public string confirm_message { get; set; }
         public Result result { get; set; }
     }
     public class ConfResetReq
     {
+        public int type { get; set; }
         public string confirm_message { get; set; }
         public string new_pass { get; set; }
     }
