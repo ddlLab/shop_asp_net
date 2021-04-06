@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-/*
+
 namespace protocol
 {
     public class ResetReq
@@ -39,4 +39,3 @@ namespace protocol
         public Result result { get; set; }
     }
 }
-*/

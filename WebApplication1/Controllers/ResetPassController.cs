@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using protocol;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using protocol;
 
 namespace WebApplication1.Controllers
 {
@@ -16,7 +16,6 @@ namespace WebApplication1.Controllers
         public ResetAck Post([FromBody] ResetReq request)
         {
             ResetAck response = new ResetAck();
-            response.confirm_message = "Madness";
             response.result = ResetAck.Result.SUCCESS;
             return response;
         }
