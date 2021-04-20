@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace db_queries._2.queries
 {
-    class QueryInsertClient : QueryBase
+    public class QueryInsertClient : QueryBase
     {
         public eClient client = null;
         public QueryInsertClient(eClient       _client,

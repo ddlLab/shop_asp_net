@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace db_queries
 {
-    class DBSQLServerUtils
+    public class DBSQLServerUtils
     {
 
         public static SqlConnection sqlConnection = null;

@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace db_queries._2.queries
 {
-    class Query_insert_saler : QueryBase
+    public class QueryInsertSaler : QueryBase
     {
         public eSaler saler = null;
-        public Query_insert_saler(eSaler _saler,
-                               SqlConnection _sqlConnection,
-                               fCompleter _completer)
-      : base(_sqlConnection, _completer, ExecType.NON_QUERY)
+        public QueryInsertSaler(eSaler          _saler,
+                                SqlConnection   _sqlConnection,
+                                fCompleter      _completer) 
+        : base(_sqlConnection, _completer, ExecType.NON_QUERY)
         {
             saler = _saler;
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace db_queries._3.structures
 {
-    class eClient
+    public class eClient
     {
         public long   Id           { get; set; } = -1;
         public string Nickname     { get; set; } = "";

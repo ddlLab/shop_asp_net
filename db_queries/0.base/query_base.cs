@@ -9,9 +9,9 @@ using System.Data.Common;
 namespace db_queries
 {
 
-    delegate void fCompleter(QueryBase query);
+    public delegate void fCompleter(QueryBase query);
 
-    abstract class QueryBase
+    public abstract class QueryBase
     {
         public enum ExecType
         {

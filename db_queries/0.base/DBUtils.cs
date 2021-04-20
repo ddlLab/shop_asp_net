@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace db_queries
 {
-    class DBUtils
+    public class DBUtils
     {
         static string datasource = @"DESKTOP-ORP9I23\SQLEXPRESS";
         static string database = "shop";

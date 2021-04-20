@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 
 namespace db_queries._3.structures
 {
-    class eSaler
+    public class eSaler
     {
         public long   Id           { get; set; } = -1;
         public string Nickname     { get; set; } = "";

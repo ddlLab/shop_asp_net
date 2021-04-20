@@ -24,6 +24,13 @@ namespace protocol
             NON_UNIQUE_NICKNAME = -1,
             OK                  = 0
         }
+
+        public RegisterStartAck() { }
+        public RegisterStartAck(Result _result, int _id = -1)
+        {
+            result = _result;
+            id     = _id;
+        }
         public int      id      { get; set; } = -1;
         public Result   result  { get; set; }
     }

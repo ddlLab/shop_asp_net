@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace db_queries._2.queries
 {
-    class QuerySelectClientByEmailNick : QueryBase
+    public class QuerySelectClientByEmailNick : QueryBase
     {
         private string       nick;
         private string       email;

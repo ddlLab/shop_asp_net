@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace db_queries._2.queries
 {
-    class QuerySelectSalerByEmailNick : QueryBase
+    public class QuerySelectSalerByEmailNick : QueryBase
     {
-        private string nick;
-        private string email;
+        private string      nick;
+        private string      email;
         public List<eSaler> salers;
-        public QuerySelectSalerByEmailNick(string _nick,
-                                            string _email,
-                                            SqlConnection _sqlConnection,
-                                            fCompleter _completer)
+        public QuerySelectSalerByEmailNick(string        _nick,
+                                           string        _email,
+                                           SqlConnection _sqlConnection,
+                                           fCompleter    _completer)
         : base(_sqlConnection, _completer, ExecType.READER)
         {
-            nick = _nick;
+            nick  = _nick;
             email = _email;
         }
         public override void PrepareParams(SqlCommand cmd)
@@ -54,17 +54,17 @@ namespace db_queries._2.queries
             {
                 if (reader.Read())
                 {
-                    eClient client = new eClient();
-                    client.Id = (long)GetDataFromDb(reader, "saler_id", eValType.LONG);
-                    client.Email = (string)GetDataFromDb(reader, "saler_email", eValType.STRING);
-                    client.Password = (string)GetDataFromDb(reader, "saler_password", eValType.STRING);
-                    client.Nickname = (string)GetDataFromDb(reader, "saler_nickname", eValType.STRING);
-                    client.Paycard = (string)GetDataFromDb(reader, "saler_paycard", eValType.STRING);
-                    client.Phone = (string)GetDataFromDb(reader, "saler_phone", eValType.STRING);
-                    client.Photo = (string)GetDataFromDb(reader, "saler_photo", eValType.STRING);
-                    client.Desc = (string)GetDataFromDb(reader, "saler_desc", eValType.STRING);
-                    client.Balance = (int)GetDataFromDb(reader, "balance", eValType.INT);
-                    client.IsBlocked = (bool)GetDataFromDb(reader, "is_blocked", eValType.BOOL);
+                    eClient client      = new eClient();
+                    client.Id           = (long)GetDataFromDb(reader, "saler_id", eValType.LONG);
+                    client.Email        = (string)GetDataFromDb(reader, "saler_email", eValType.STRING);
+                    client.Password     = (string)GetDataFromDb(reader, "saler_password", eValType.STRING);
+                    client.Nickname     = (string)GetDataFromDb(reader, "saler_nickname", eValType.STRING);
+                    client.Paycard      = (string)GetDataFromDb(reader, "saler_paycard", eValType.STRING);
+                    client.Phone        = (string)GetDataFromDb(reader, "saler_phone", eValType.STRING);
+                    client.Photo        = (string)GetDataFromDb(reader, "saler_photo", eValType.STRING);
+                    client.Desc         = (string)GetDataFromDb(reader, "saler_desc", eValType.STRING);
+                    client.Balance      = (int)GetDataFromDb(reader, "balance", eValType.INT);
+                    client.IsBlocked    = (bool)GetDataFromDb(reader, "is_blocked", eValType.BOOL);
                 }
             }
         }
