@@ -23,11 +23,12 @@ namespace db_queries._2.queries
         {
             nick = _nick;
             email = _email;
+            clients = new List<eClient>();
         }
         public override void PrepareParams(SqlCommand cmd)
         {
-            cmd.Parameters.Add("@email", SqlDbType.Text).Value = email;
-            cmd.Parameters.Add("@nick", SqlDbType.Text).Value = nick;
+            cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+            cmd.Parameters.Add("@nick", SqlDbType.VarChar).Value = nick;
         }
 
         public override string SqlCommand()
@@ -65,6 +66,7 @@ namespace db_queries._2.queries
                     client.Desc      = (string)GetDataFromDb(reader, "client_desc", eValType.STRING);
                     client.Balance   = (int)GetDataFromDb(reader, "balance", eValType.INT);
                     client.IsBlocked = (bool)GetDataFromDb(reader, "is_blocked", eValType.BOOL);
+                    clients.Add(client);
                 }
             }
         }

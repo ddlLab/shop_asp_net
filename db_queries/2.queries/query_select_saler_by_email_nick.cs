@@ -26,8 +26,8 @@ namespace db_queries._2.queries
         }
         public override void PrepareParams(SqlCommand cmd)
         {
-            cmd.Parameters.Add("@email", SqlDbType.Text).Value = email;
-            cmd.Parameters.Add("@nick", SqlDbType.Text).Value = nick;
+            cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+            cmd.Parameters.Add("@nick", SqlDbType.VarChar).Value = nick;
         }
 
         public override string SqlCommand()

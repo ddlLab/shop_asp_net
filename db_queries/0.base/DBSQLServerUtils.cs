@@ -10,18 +10,7 @@ namespace db_queries
     public class DBSQLServerUtils
     {
 
-        public static SqlConnection sqlConnection = null;
-
-        public static void Init(string datasource,
-                                string database,
-                                string username,
-                                string password)
-        {
-            sqlConnection = GetDBConnection(datasource,
-                                            database,
-                                            username,
-                                            password);
-        }
+        
         public static SqlConnection GetDBConnection(string datasource,
                                                     string database,
                                                     string username,
@@ -33,9 +22,7 @@ namespace db_queries
                               + "User ID=" + username
                               + ";Password=" + password;
 
-            SqlConnection conn = new SqlConnection(connString);
-
-            return conn;
+            return new SqlConnection(connString);
         }
 
 

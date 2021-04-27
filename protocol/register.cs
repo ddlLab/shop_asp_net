@@ -46,7 +46,12 @@ namespace protocol
             FAIL = -1,
             OK = 0
         }
-        public int user_id { get; set; }
+        public RegisterFinishAck(Result _result, int _id = -1)
+        {
+            result = _result;
+            user_id = _id;
+        }
+        public int user_id { get; set; } = -1;
         public Result result { get; set; }
     }
 

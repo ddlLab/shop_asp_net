@@ -31,6 +31,7 @@ namespace db_queries
         public void Execute()
         {
             SqlCommand cmd = sqlConnection.CreateCommand();
+            sqlConnection.Open();
             cmd.CommandText = SqlCommand();
             PrepareParams(cmd);
             if (type == ExecType.NON_QUERY)

@@ -1,11 +1,12 @@
 ﻿using protocol;
-using testproj;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using db_queries;
 using db_queries._2.queries;
+using System.Net.Mail;
+using System.Net;
 
 namespace WebApplication1.controls
 {
@@ -40,6 +41,7 @@ namespace WebApplication1.controls
                 req.msg         = msg;
                 req.createdTime = DateTime.Now;
                 req.code        = GenerateCode();
+                requests.Add(req);
             }
             if(req != null)
             {
@@ -57,27 +59,35 @@ namespace WebApplication1.controls
         }
         public RegisterFinishAck OnRegisterFinish(RegisterFinishReq msg)
         {
-            //todo alex
-            //Drop all Expired requests
-            //Find Requst start with same code(maybe has in this class method?)
-            // if code not found return Finish Ack with error
-            // otherwise convert req.msg to object class Saler|Client
-            // Call insert query and exec it (see db_query proj)
-            // return Success Finish Ack
             DropExpiredCodes();
-            if (msg != req.code)
-                return new RegisterFinishAck(RegisterFinishAck.Result.FAIL);
-            {                 
-                if (msg.type == 0)
+            StartRequest request = null;
+            foreach ( StartRequest startRequest in requests)
+            {
+                if (msg.code == startRequest.code)
                 {
-                    Saler[eUser.id] = new eUser;
-                }
-                else if (msg.type == 1)
-                {
-                    Client[eUser.id] = new eUser;
+                    request = startRequest;
+                    break;
                 }
             }
-            QueryBase.Execute();
+            if(request == null)
+            {
+                return new RegisterFinishAck(RegisterFinishAck.Result.FAIL);
+            }
+            QueryBase query = null;
+            if (msg.type == 0)
+            {
+                query = new QueryInsertClient(ConverterUser.MakeClient(request.msg),
+                                              DBUtils.GetDBConnection(),
+                                              null);
+            }
+            else if (msg.type == 1)
+            {
+                query = new QueryInsertSaler(ConverterUser.MakeSaler(request.msg),
+                                             DBUtils.GetDBConnection(),
+                                             null);
+            }
+            query.Execute();
+            requests.Remove(request);
             return new RegisterFinishAck(RegisterFinishAck.Result.OK);
         }
         protected bool IsUserRegistred(RegisterStartReq msg)
@@ -144,22 +154,28 @@ namespace WebApplication1.controls
         }
         protected bool IsValidEmail(string email)
         {
-            //todo dmitro
-            //1 - @
-            //before after @ has symbols
-            // minimum 1 dot
-            // dot must be after @ 
-            //between dot and @ must bee symbols
-            // after dot must bee symbols
-
-            
-            return false;
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         protected void SendCode(string email, string code)
         {
-            //todo dmitro || alex
-            //https://metanit.com/sharp/net/8.1.php
+            MailAddress from = new MailAddress("rerolld100@gmail.com", "Dmytro&SashkoShop");
+            MailAddress to = new MailAddress(email);
+            MailMessage m = new MailMessage(from, to);
+            m.Subject = "Registratition Code";
+            m.Body = $"Setup this code to confirm registration. Your Code is {code}";
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("rerolld100@gmail.com", "ddeasumakdsinanv");
+            smtp.EnableSsl = true;
+            smtp.SendMailAsync(m);
         }
 
         List<StartRequest> requests = null;
