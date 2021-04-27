@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using protocol;
 
 namespace WebApplication1.Controllers
@@ -20,8 +19,7 @@ namespace WebApplication1.Controllers
             SetupCardAck response = new SetupCardAck();
             response.type = 1;
             response.result = SetupCardAck.Result.OK;
-            return response;
-           
+            return response;          
         }
 
     }

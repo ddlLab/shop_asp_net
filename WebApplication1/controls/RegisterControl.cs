@@ -1,4 +1,5 @@
 ﻿using protocol;
+using testproj;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,7 +64,21 @@ namespace WebApplication1.controls
             // otherwise convert req.msg to object class Saler|Client
             // Call insert query and exec it (see db_query proj)
             // return Success Finish Ack
-            return null;
+            DropExpiredCodes();
+            if (msg != req.code)
+                return new RegisterFinishAck(RegisterFinishAck.Result.FAIL);
+            {                 
+                if (msg.type == 0)
+                {
+                    Saler[eUser.id] = new eUser;
+                }
+                else if (msg.type == 1)
+                {
+                    Client[eUser.id] = new eUser;
+                }
+            }
+            QueryBase.Execute();
+            return new RegisterFinishAck(RegisterFinishAck.Result.OK);
         }
         protected bool IsUserRegistred(RegisterStartReq msg)
         {

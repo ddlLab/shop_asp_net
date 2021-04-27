@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace testproj
 {
-    abstract class QueryBase
+   public abstract class QueryBase
     {
         public enum ExecType
         {
