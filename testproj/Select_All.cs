@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace testproj
 {
-    class eUser
+    public class eUser
     {
         public long id;
         public string login;
@@ -23,7 +23,7 @@ namespace testproj
     }
 
 
-    class SelectAllUsers : QueryBase
+    public class SelectAllUsers : QueryBase
     {
         public SelectAllUsers(SqlConnection _sqlConnection)
         : base(_sqlConnection, ExecType.READER)
