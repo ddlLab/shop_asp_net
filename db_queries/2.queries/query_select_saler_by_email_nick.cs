@@ -54,17 +54,18 @@ namespace db_queries._2.queries
             {
                 if (reader.Read())
                 {
-                    eClient client      = new eClient();
-                    client.Id           = (long)GetDataFromDb(reader, "saler_id", eValType.LONG);
-                    client.Email        = (string)GetDataFromDb(reader, "saler_email", eValType.STRING);
-                    client.Password     = (string)GetDataFromDb(reader, "saler_password", eValType.STRING);
-                    client.Nickname     = (string)GetDataFromDb(reader, "saler_nickname", eValType.STRING);
-                    client.Paycard      = (string)GetDataFromDb(reader, "saler_paycard", eValType.STRING);
-                    client.Phone        = (string)GetDataFromDb(reader, "saler_phone", eValType.STRING);
-                    client.Photo        = (string)GetDataFromDb(reader, "saler_photo", eValType.STRING);
-                    client.Desc         = (string)GetDataFromDb(reader, "saler_desc", eValType.STRING);
-                    client.Balance      = (int)GetDataFromDb(reader, "balance", eValType.INT);
-                    client.IsBlocked    = (bool)GetDataFromDb(reader, "is_blocked", eValType.BOOL);
+                    eSaler saler      = new eSaler();
+                    saler.Id           = (long)GetDataFromDb(reader, "saler_id", eValType.LONG);
+                    saler.Email        = (string)GetDataFromDb(reader, "saler_email", eValType.STRING);
+                    saler.Password     = (string)GetDataFromDb(reader, "saler_password", eValType.STRING);
+                    saler.Nickname     = (string)GetDataFromDb(reader, "saler_nickname", eValType.STRING);
+                    saler.Paycard      = (string)GetDataFromDb(reader, "saler_paycard", eValType.STRING);
+                    saler.Phone        = (string)GetDataFromDb(reader, "saler_phone", eValType.STRING);
+                    saler.Photo        = (string)GetDataFromDb(reader, "saler_photo", eValType.STRING);
+                    saler.Desc         = (string)GetDataFromDb(reader, "saler_desc", eValType.STRING);
+                    saler.Balance      = (int)GetDataFromDb(reader, "balance", eValType.INT);
+                    saler.IsBlocked    = (bool)GetDataFromDb(reader, "is_blocked", eValType.BOOL);
+                    salers.Add(saler);
                 }
             }
         }
