@@ -20,7 +20,7 @@ namespace protocol
             FAIL_EMAIL_NOT_FOUND = -1,
             SUCCESS = 0
         }
-        public int user_id { get; set; }// = RegisterStartAck.id;        
+        public long user_id { get; set; }// = RegisterStartAck.id;        
         public Result result { get; set; }
     }
 }

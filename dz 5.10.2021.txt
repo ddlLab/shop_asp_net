@@ -1,0 +1,3 @@
++add singlton to controls/engine
++add create methods loadClient loadSaler from LoginControl
++ test request-response

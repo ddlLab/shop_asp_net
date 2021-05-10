@@ -8,6 +8,7 @@ namespace WebApplication1.controls
     public static class eEngine
     {
         static RegisterControl registerControl = null;
+        static LoginControl loginControl = null;
 
         public static RegisterControl GetRegisterControl()
         {
@@ -17,5 +18,7 @@ namespace WebApplication1.controls
             }
             return registerControl;
         }
+
+        // todo GetLoginControl
     }
 }
