@@ -4,10 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using db_queries._2.queries;
+using db_queries;
 
 namespace WebApplication1.controls
 {
-    class eClientOnline
+    public class eClientOnline
     {
         public eClientOnline(eClient _client)
         {
@@ -16,7 +18,7 @@ namespace WebApplication1.controls
         public eClient  client_    = null;
         public DateTime lastAction_ = DateTime.Now;
     }
-    class eSalerOnline
+    public class eSalerOnline
     {
         public eSalerOnline(eSaler _saler)
         {
@@ -25,7 +27,7 @@ namespace WebApplication1.controls
         public eSaler   saler_ = null;
         public DateTime lastAction_ = DateTime.Now;
     }
-    class LoginControl
+    public class LoginControl
     {
         static readonly long TIMEOUT_WITHOUT_ACTIONS = 30 * 60;
         static readonly long TIMEOUT_UPDATE = 1 * 60;
@@ -74,10 +76,41 @@ namespace WebApplication1.controls
             }
         }
 
+
+        eSaler LoadSaler(string email)
+        {
+            QuerySelectSalerByEmailNick query = new QuerySelectSalerByEmailNick("",
+                                                                                email,
+                                                                                DBUtils.GetDBConnection(),
+                                                                                null);
+            query.Execute();
+            if(query.salers.Count > 0)
+            {
+                return query.salers[0];
+            }
+            return null;
+        }
+
+        eClient LoadClient(string email)
+        {
+            QuerySelectClientByEmailNick query = new QuerySelectClientByEmailNick("",
+                                                                                  email,
+                                                                                  DBUtils.GetDBConnection(),
+                                                                                  null);
+            query.Execute();
+            if (query.clients.Count > 0)
+            {
+                return query.clients[0];
+            }
+            return null;
+        }
+
         LoginAck OnLoginSaler(LoginReq msg)
         {
             var response = new LoginAck();
-            eSaler saler = LoadSaler(msg.email);
+
+            eSaler saler = LoadSaler(msg.email); 
+                
             if (saler == null)
             {
                 return response;
@@ -86,7 +119,14 @@ namespace WebApplication1.controls
             {
                 response.result = LoginAck.Result.SUCCESS;
                 response.user_id = saler.Id;
-                onlineSalers.Add(saler.Id, new eSalerOnline(saler));
+                if (onlineSalers.ContainsKey(saler.Id))
+                {
+                    onlineSalers[saler.Id].lastAction_ = DateTime.Now;
+                }
+                else
+                {
+                    onlineSalers.Add(saler.Id, new eSalerOnline(saler));
+                }
                 return response;
             }
             response.result = LoginAck.Result.FAIL_INVALID_PASS;
@@ -104,7 +144,14 @@ namespace WebApplication1.controls
             {
                 response.result = LoginAck.Result.SUCCESS;
                 response.user_id = client.Id;
-                onlineClients.Add(client.Id, new eClientOnline(client));
+                if(onlineClients.ContainsKey(client.Id))
+                {
+                    onlineClients[client.Id].lastAction_ = DateTime.Now;
+                }
+                else
+                {
+                    onlineClients.Add(client.Id, new eClientOnline(client));
+                }
                 return response;
             }
             response.result = LoginAck.Result.FAIL_INVALID_PASS;
@@ -112,7 +159,7 @@ namespace WebApplication1.controls
         }
         public LoginAck OnLogin(LoginReq msg)
         {
-            LoginAck response = null;
+            LoginAck response = new LoginAck();
             if(msg.type == 0)
             {
                 response = OnLoginClient(msg);
@@ -121,7 +168,7 @@ namespace WebApplication1.controls
             {
                 response = OnLoginSaler(msg);
             }
-            return new LoginAck();
+            return response;
         }
 
         public Dictionary<long, eClientOnline> onlineClients = null;

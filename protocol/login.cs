@@ -14,13 +14,22 @@ namespace protocol
     }
     public class LoginAck
     {
+        public LoginAck()
+        {
+            result = Result.FAIL_EMAIL_NOT_FOUND;
+        }
         public enum Result
         {
             FAIL_INVALID_PASS = -2,
             FAIL_EMAIL_NOT_FOUND = -1,
             SUCCESS = 0
         }
-        public long user_id { get; set; }// = RegisterStartAck.id;        
-        public Result result { get; set; }
+        public long user_id { get; set; } = -1;
+        public Result result 
+        {
+            get;
+            set; 
+        }
+       // public string resultDesc { get; set; } = "";
     }
 }

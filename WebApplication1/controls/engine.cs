@@ -18,7 +18,14 @@ namespace WebApplication1.controls
             }
             return registerControl;
         }
-
-        // todo GetLoginControl
+		
+		public static LoginControl GetLoginControl()
+        {
+            if(loginControl == null)
+            {
+                loginControl = new LoginControl();
+            }
+            return loginControl;
+        }
     }
 }

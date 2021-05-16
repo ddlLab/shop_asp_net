@@ -27,9 +27,9 @@ CREATE TABLE Salers
 
 	CONSTRAINT pk_Salers_saler_id				PRIMARY KEY (saler_id),
 	CONSTRAINT uq_Salers_saler_email			UNIQUE (saler_email),
-	CONSTRAINT uq_Salers_saler_nickname			UNIQUE (saler_nickname),
-	CONSTRAINT uq_Salers_saler_phone			UNIQUE (saler_phone),
-	CONSTRAINT uq_Salers_saler_paycard			UNIQUE (saler_paycard)
+	CONSTRAINT uq_Salers_saler_nickname			UNIQUE (saler_nickname)
+	--CONSTRAINT uq_Salers_saler_phone			UNIQUE (saler_phone),
+	--CONSTRAINT uq_Salers_saler_paycard			UNIQUE (saler_paycard)
 )
 GO
 
@@ -63,8 +63,8 @@ CREATE TABLE Clients
 	CONSTRAINT pk_Clients_client_id				PRIMARY KEY (client_id),
 	CONSTRAINT uq_Clients_client_nickname		UNIQUE (client_nickname),
 	CONSTRAINT uq_Clients_client_email			UNIQUE (client_email),
-	CONSTRAINT uq_Clients_client_phone			UNIQUE (client_phone),
-	CONSTRAINT uq_Clients_client_paycard		UNIQUE (client_paycard)
+	--CONSTRAINT uq_Clients_client_phone			UNIQUE (client_phone),
+	--CONSTRAINT uq_Clients_client_paycard		UNIQUE (client_paycard)
 
 )
 GO

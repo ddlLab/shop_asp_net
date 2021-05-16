@@ -23,6 +23,7 @@ namespace db_queries._2.queries
         {
             nick  = _nick;
             email = _email;
+            salers = new List<eSaler>();
         }
         public override void PrepareParams(SqlCommand cmd)
         {
@@ -35,15 +36,15 @@ namespace db_queries._2.queries
             string sql = "SELECT * FROM Salers";
             if (nick.Length > 0 && email.Length > 0)
             {
-                sql += " WHERE saler_nickname=@saler_nick OR saler_email=@saler_email";
+                sql += " WHERE saler_nickname=@nick OR saler_email=@email";
             }
             else if (nick.Length > 0)
             {
-                sql += " WHERE saler_nickname=@saler_nick";
+                sql += " WHERE saler_nickname=@nick";
             }
             else if (email.Length > 0)
             {
-                sql += " WHERE saler_email=@saler_email";
+                sql += " WHERE saler_email=@email";
             }
             return sql;
         }
