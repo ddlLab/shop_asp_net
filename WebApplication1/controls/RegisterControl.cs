@@ -110,6 +110,7 @@ namespace WebApplication1.controls
                 query.Execute();
                 return query.salers.Count != 0;
             }
+            //todo swap msg.email&msg.nick
         }
         static readonly string alphabet = "1234567890qwertyuiopasdfghjklzxcvbnmPOIUYTREWQLKJHGFDSAMNBVCXZ";
         static Random random = new Random();

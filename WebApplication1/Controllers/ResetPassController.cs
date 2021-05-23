@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using protocol;
+using WebApplication1.controls;
 
 namespace WebApplication1.Controllers
 {
@@ -15,9 +16,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ResetAck Post([FromBody] ResetReq request)
         {
-            ResetAck response = new ResetAck();
-            response.result = ResetAck.Result.SUCCESS;
-            return response;
+            return eEngine.GetResetPasswordControl().OnResetStart(request);
         }
 
         [Route("reset-finish")]

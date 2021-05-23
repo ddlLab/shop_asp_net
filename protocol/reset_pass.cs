@@ -8,15 +8,17 @@ namespace protocol
 {
     public class ResetReq
     {
-        public string name { get; set; }
+        public string email { get; set; }
         public int type { get; set; }
     }
     public class ResetAck
     {
+      public  ResetAck(Result _result)  { result = _result; }
         public enum Result
         {
+            FAIL_UNREGISTER_USER = -3,
             FAIL_INCORRECT_EMAIL = -2,
-            FAIL_INCORRECT_NAME = -1,
+            UNKNOWN_ERROR = -1,
             SUCCESS = 0
         }     
         public Result result { get; set; }
