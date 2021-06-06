@@ -26,16 +26,21 @@ namespace protocol
     public class ConfResetReq
     {
         public int type { get; set; }
-        public string confirm_message { get; set; }
+        public string code { get; set; }
         public string new_pass { get; set; }
     }
     public class ConfResetAck
     {
+        public ConfResetAck(Result result)
+        {
+            this.result = result;
+        }
+
         public enum Result
         {
             FAIL_NEW_PASS_SAME_AS_OLD = -3,
             FAIL_INCORRECT_PASS = -2,
-            FAIL_INCORRECT_CONF_MESSAGE = -1,
+            FAIL_INCORRECT_CODE = -1,
             SUCCESS = 0
         }
         public Result result { get; set; }
