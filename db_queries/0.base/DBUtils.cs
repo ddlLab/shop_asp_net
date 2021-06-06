@@ -9,7 +9,7 @@ namespace db_queries
 {
     public class DBUtils
     {
-        static string datasource = @"DESKTOP-ORP9I23\SQLEXPRESS";
+        static string datasource = @"DESKTOP-HIEQ37A\SQLEXPRESS";
         static string database = "shop";
         static string username = @"dich";
         static string password = "11qqAAzz";

@@ -63,6 +63,10 @@ namespace WebApplication1.controls
         }
         public ConfResetAck OnResetFinish(ConfResetReq msg)
         {
+            if (msg.type != 0 && msg.type != 1)
+            {
+                return new ConfResetAck(ConfResetAck.Result.FAIL_UNKNOWN_TYPE);
+            }
             if (msg.new_pass.Length < 8)
             {
                 return new ConfResetAck(ConfResetAck.Result.FAIL_INCORRECT_PASS);
@@ -71,7 +75,7 @@ namespace WebApplication1.controls
             ResetRequest request = null;
             foreach (ResetRequest req in requests)
             {
-                if (msg.code.Equals (req.code))
+                if (msg.code.Equals (req.code) && msg.type == req.msg.type )
                 {
                     request = req;
                     break;
@@ -81,8 +85,15 @@ namespace WebApplication1.controls
             {
                 return new ConfResetAck(ConfResetAck.Result.FAIL_INCORRECT_CODE);
             }
-           
             QueryBase query = null;
+            if (msg.type == 0)
+            {
+                query = new QueryUpdateClientPass(request.msg.email, msg.new_pass, DBUtils.GetDBConnection(), null);
+            }
+            else
+            {
+                query = new QueryUpdateSalerPass(request.msg.email, msg.new_pass, DBUtils.GetDBConnection(), null);
+            }
             query.Execute();
             requests.Remove(request);
             return new ConfResetAck(ConfResetAck.Result.SUCCESS);

@@ -38,6 +38,7 @@ namespace protocol
 
         public enum Result
         {
+            FAIL_UNKNOWN_TYPE = -4,
             FAIL_NEW_PASS_SAME_AS_OLD = -3,
             FAIL_INCORRECT_PASS = -2,
             FAIL_INCORRECT_CODE = -1,

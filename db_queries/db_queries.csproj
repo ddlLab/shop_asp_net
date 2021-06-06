@@ -79,6 +79,8 @@
     <Compile Include="2.queries\query_insert_saler.cs" />
     <Compile Include="2.queries\query_select_client_by_email_nick.cs" />
     <Compile Include="2.queries\query_select_saler_by_email_nick.cs" />
+    <Compile Include="2.queries\query_update_pass_client.cs" />
+    <Compile Include="2.queries\query_update_pass_saler.cs" />
     <Compile Include="3.structures\Client.cs" />
     <Compile Include="3.structures\Saler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
