@@ -15,7 +15,7 @@ namespace WebApplication1.controls
         protected class ResetRequest
         {
             public ResetReq msg;
-            public string code;
+            public string   code;
             public DateTime createdTime;
         }
         public ResetPasswordControl()
@@ -60,6 +60,32 @@ namespace WebApplication1.controls
                 return new ResetAck(ResetAck.Result.SUCCESS);
             }
             return new ResetAck(ResetAck.Result.UNKNOWN_ERROR);
+        }
+        public ConfResetAck OnResetFinish(ConfResetReq msg)
+        {
+            if (msg.new_pass.Length < 8)
+            {
+                return new ConfResetAck(ConfResetAck.Result.FAIL_INCORRECT_PASS);
+            }
+            DropExpiredCodes();
+            ResetRequest request = null;
+            foreach (ResetRequest req in requests)
+            {
+                if (msg.code.Equals (req.code))
+                {
+                    request = req;
+                    break;
+                }
+            }
+            if (request == null)
+            {
+                return new ConfResetAck(ConfResetAck.Result.FAIL_INCORRECT_CODE);
+            }
+           
+            QueryBase query = null;
+            query.Execute();
+            requests.Remove(request);
+            return new ConfResetAck(ConfResetAck.Result.SUCCESS);
         }
         protected bool IsValidEmail(string email)
         {

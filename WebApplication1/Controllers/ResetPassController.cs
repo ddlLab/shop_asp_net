@@ -23,9 +23,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ConfResetAck Post([FromBody] ConfResetReq request)
         {
-            ConfResetAck response = new ConfResetAck();
-            response.result = ConfResetAck.Result.SUCCESS;
-            return response;
+            return eEngine.GetResetPasswordControl().OnResetFinish(request);
         }
     }
 }
