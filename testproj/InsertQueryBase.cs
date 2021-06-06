@@ -170,7 +170,7 @@ namespace testproj
         public string email;
         public eUser user = null;
     }
-    //todo update email for user
+    //    update email for user
 
     class SelectUserByLogin : QueryBase
     {

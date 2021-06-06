@@ -94,8 +94,8 @@ namespace WebApplication1.controls
         {
             if(msg.type == 0)
             {
-                QuerySelectClientByEmailNick query = new QuerySelectClientByEmailNick(msg.email,
-                                                                                      msg.nick,
+                QuerySelectClientByEmailNick query = new QuerySelectClientByEmailNick("",
+                                                                                      msg.email,
                                                                                       DBUtils.GetDBConnection(),
                                                                                       null);
                 query.Execute();
@@ -103,14 +103,13 @@ namespace WebApplication1.controls
             }
             else
             {
-                QuerySelectSalerByEmailNick query = new QuerySelectSalerByEmailNick(msg.email,
-                                                                                    msg.nick,
+                QuerySelectSalerByEmailNick query = new QuerySelectSalerByEmailNick("",
+                                                                                    msg.email,
                                                                                     DBUtils.GetDBConnection(),
                                                                                     null);
                 query.Execute();
                 return query.salers.Count != 0;
             }
-            //todo swap msg.email&msg.nick
         }
         static readonly string alphabet = "1234567890qwertyuiopasdfghjklzxcvbnmPOIUYTREWQLKJHGFDSAMNBVCXZ";
         static Random random = new Random();
