@@ -32,8 +32,8 @@ namespace db_queries._2.queries
         }
         public override void PrepareParams(SqlCommand cmd)
         {
-            cmd.Parameters.Add("@client_email", SqlDbType.Text).Value = email;
-            cmd.Parameters.Add("@client_password", SqlDbType.Text).Value = password;
+            cmd.Parameters.Add("@client_email", SqlDbType.VarChar).Value = email;
+            cmd.Parameters.Add("@client_password", SqlDbType.VarChar).Value = password;
         }
     }
 }
