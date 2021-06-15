@@ -10,6 +10,7 @@ namespace WebApplication1.controls
         static RegisterControl registerControl = null;
         static LoginControl loginControl = null;
         static ResetPasswordControl resetControl = null;
+        static UpdateCardControl updateControl = null;
 
         public static RegisterControl GetRegisterControl()
         {
@@ -35,6 +36,14 @@ namespace WebApplication1.controls
                 resetControl = new ResetPasswordControl();
             }
             return resetControl;
+        }
+        public static UpdateCardControl GetUpdateCardControl()
+        {
+            if (updateControl == null)
+            {
+                updateControl = new UpdateCardControl();
+            }
+            return updateControl;
         }
     }
 }

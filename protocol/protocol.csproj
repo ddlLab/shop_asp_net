@@ -46,6 +46,7 @@
     <Compile Include="register.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reset_pass.cs" />
+    <Compile Include="update_paycard.cs" />
     <Compile Include="user_settings_msgs.cs" />
   </ItemGroup>
   <ItemGroup>

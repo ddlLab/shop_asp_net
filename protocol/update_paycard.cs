@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace protocol
 {
-    public class ResetReq
+    public class UpdateReq
     {
         public string email { get; set; }
         public int type { get; set; }
     }
-    public class ResetAck
+    public class UpdateAck
     {
-      public  ResetAck(Result _result)  { result = _result; }
+        public UpdateAck(Result _result) { result = _result; }
         public enum Result
         {
             FAIL_UNREGISTER_USER = -3,
             FAIL_INCORRECT_EMAIL = -2,
             UNKNOWN_ERROR = -1,
             SUCCESS = 0
-        }     
+        }
         public Result result { get; set; }
     }
-    public class ConfResetReq
+    public class ConfUpdateReq
     {
         public int type { get; set; }
         public string code { get; set; }
-        public string new_pass { get; set; }
+        public string new_card { get; set; }
     }
-    public class ConfResetAck
+    public class ConfUpdateAck
     {
-        public ConfResetAck(Result result)
+        public ConfUpdateAck(Result result)
         {
             this.result = result;
         }
 
         public enum Result
         {
-            FAIL_UNKNOWN_TYPE = -3,
-            FAIL_INCORRECT_PASS = -2,
+            FAIL_UNKNOWN_TYPE   = -3,
+            FAIL_INCORRECT_CARD = -2,
             FAIL_INCORRECT_CODE = -1,
             SUCCESS = 0
         }
