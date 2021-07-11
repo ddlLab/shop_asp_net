@@ -4,13 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4f33c168-f215-4a46-acc3-62733ff6f079</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Front.py</StartupFile>
+    <StartupFile>pass_reset_finish.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>Front</Name>
     <RootNamespace>Front</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,6 +23,26 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Front.py" />
+    <Compile Include="logination_frame.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pass_reset_finish.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pass_reset_finish_frame.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pass_reset_start.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pass_reset_start_frame.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="registration_frame.py" />
+    <Compile Include="UI.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_ui.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
