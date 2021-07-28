@@ -26,23 +26,16 @@
     <Compile Include="logination_frame.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="pass_reset_finish.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="pass_reset_finish_frame.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="pass_reset_start.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="pass_reset_start_frame.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="registration_frame.py" />
-    <Compile Include="UI.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="main.py" />
+    <Compile Include="updatePaycardFinish_frame.py" />
+    <Compile Include="updatePaycardStart_frame.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

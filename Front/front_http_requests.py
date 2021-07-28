@@ -47,7 +47,7 @@ def pass_reset(type:int,email:str):
   resp = requests.post(url, json = myobj,verify=False)
 
   return resp.json()
-
+"""
 while True:
   a = input()  
   r = register(1,"karl.evgrafovich@gmail.com","1488","IDDQD")
@@ -58,3 +58,4 @@ while True:
   print('card update', c)
   p = pass_reset(1,"brabudasious@gmail.com")
   print('pass reset', p)
+"""
