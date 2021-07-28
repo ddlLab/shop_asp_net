@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "protocol", "protocol\protoc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "db_queries", "db_queries\db_queries.csproj", "{D39E86E3-B229-47DB-840E-C5EFD25072A6}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Front", "Front\Front.pyproj", "{4F33C168-F215-4A46-ACC3-62733FF6F079}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,8 @@ Global
 		{D39E86E3-B229-47DB-840E-C5EFD25072A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D39E86E3-B229-47DB-840E-C5EFD25072A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D39E86E3-B229-47DB-840E-C5EFD25072A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F33C168-F215-4A46-ACC3-62733FF6F079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F33C168-F215-4A46-ACC3-62733FF6F079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

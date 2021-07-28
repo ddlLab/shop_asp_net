@@ -4,3 +4,4 @@ bin/
 packages/
 .vs/
 /db_queries/0.base/DBUtils.cs
+/Front/__pycache__/*

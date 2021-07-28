@@ -1,0 +1,41 @@
+﻿from tkinter import *
+
+class LoginationFrame:
+    def __init__(self,root):
+        self.root = root
+        self._initVars()
+        self.loginationFrame = Frame(self.root, bg='grey', bd=5)
+        self.lblLog = Label(self.loginationFrame , text='Logination', bg='gray')
+        self.lblLogEmail = Label(self.loginationFrame, text='Type your email', bg='gray')
+        self.lblLogPass = Label(self.loginationFrame, text='Type your password',bg='gray')
+        self.entryLogEmail = Entry(self.loginationFrame, width = 25,textvariable = self.emailText)
+        self.entryLogPass = Entry(self.loginationFrame, width = 25,textvariable = self.passText)
+        self.buttonLog = Button(self.loginationFrame, text='Login', width = 25)
+#-----------------------------------------------------------------------------------------------------------------------
+    def _initVars(self):
+        self.emailText = StringVar()
+        self.emailText.set('email')
+        self.passText = StringVar()
+        self.passText.set('password')
+        self.hidden = False
+#-----------------------------------------------------------------------------------------------------------------------
+    def pack(self):
+        self.loginationFrame.pack(side=LEFT)
+        self.lblLog.pack()
+        self.lblLogEmail.pack()
+        self.entryLogEmail.pack()
+        self.lblLogPass.pack()
+        self.entryLogPass.pack()
+        self.buttonLog.pack()
+#-----------------------------------------------------------------------------------------------------------------------
+    def show(self):
+        print(self.hidden)
+        if(self.hidden):
+            self.loginationFrame.pack(side=LEFT)
+            self.hidden = False
+# -----------------------------------------------------------------------------------------------------------------------
+    def unshow(self):
+        print(self.hidden)
+        if(not(self.hidden)):
+            self.loginationFrame.pack_forget()
+            self.hidden = True
