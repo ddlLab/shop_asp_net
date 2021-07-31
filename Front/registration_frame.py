@@ -13,6 +13,7 @@ class RegistrationFrame:
         self.entryRegNick = Entry(self.registerFrame, textvariable=self.nickText, width=25)
         self.entryRegPass = Entry(self.registerFrame, textvariable=self.passText, width=25)
         self.buttonReg = Button(self.registerFrame, text='Create', width=25)
+        self.pack()
 #-----------------------------------------------------------------------------------------------------------------------
     def _initVars(self):
         self.emailText = StringVar()
@@ -21,10 +22,10 @@ class RegistrationFrame:
         self.nickText.set('nickname')
         self.passText = StringVar()
         self.passText.set('password')
-        self.hidden = False
+        self.hidden = True
 # -----------------------------------------------------------------------------------------------------------------------
     def pack(self):
-        self.registerFrame.pack(side=LEFT)
+        self.registerFrame.pack()
         self.lblReg.pack()
         self.lblRegEmail.pack()
         self.entryRegEmail.pack()
@@ -37,7 +38,7 @@ class RegistrationFrame:
     def show(self):
         print(self.hidden)
         if(self.hidden):
-            self.registerFrame.pack(side=LEFT)
+            self.registerFrame.pack()
             self.hidden = False
 # -----------------------------------------------------------------------------------------------------------------------
     def unshow(self):

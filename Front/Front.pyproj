@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="core_frame.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="front_http_requests.py" />
     <Compile Include="logination_frame.py">
       <SubType>Code</SubType>

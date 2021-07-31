@@ -8,54 +8,59 @@ from registration_frame import RegistrationFrame
 from updatePaycardStart_frame import StartUptCardFrame
 from updatePaycardFinish_frame import FinishUptCardFrame
 
-from front_http_requests import *
-import requests
-
 class CoreFrame:
     def __init__(self,root):
        self.root = root
        self._initVars()
-       self.registerMethod()
-       self.loginationMethod()
        
-       self.coreFrame = Frame(self.root, bg='grey', bd=5)
-       
-       checkRoleBox=Checkbutton(root,text='client',variable=roleVarClient)
-
-       registrationButton=Button(root,text='Register',width=25, command =registerMethod)
-       loginationButton=Button(root,text='Login',width=25, command =loginationMethod)
+       self.initMainComponents()
 #-----------------------------------------------------------------------------------------------------------------------
     def registerMethod(self):
-        self.loginationButton.pack_forget()
+        self.unpackMainComponents()
 
-        regFrame = RegistrationFrame(root)
-        buttonReg=Button(root,text='Hide registration',width=25, command =regFrame.unshow )
-        buttonReg1=Button(root,text='Show registration',width=25, command =regFrame.show )
+        self.regFrame = RegistrationFrame(self.root)
+        self.regFrame.show()
+        self.btnBack=Button(self.root,text='Back',width=25, command =self.initMainComponents )
+        self.btnBack.pack()
 #-----------------------------------------------------------------------------------------------------------------------
     def loginationMethod(self):
-        self.registrationButton.pack_forget()
-
-        logFrame = LoginationFrame(root)
-        buttonLog=Button(root,text='Hide login',width=25, command =logFrame.unshow )
-        buttonLog1=Button(root,text='Show login',width=25, command =logFrame.show )
+        self.unpackMainComponents()
+        self.logFrame = LoginationFrame(self.root, self)
+        self.logFrame.show()
+        self.btnBack=Button(self.root,text='Back',width=25, command =self.initMainComponents )
+        self.btnBack.pack()
 #-----------------------------------------------------------------------------------------------------------------------
     def _initVars(self):
-        roleVarClient=IntVar()
-        self.hidden = False
+        self.logFrame = None
+        self.regFrame = None
+        self.btnBack  = None
+        self.roleVarClient=IntVar()
+        self.hidden = True
+#-----------------------------------------------------------------------------------------------------------------------
+    def initMainComponents(self):
+       if self.regFrame!=None:
+           self.regFrame.unshow()
+       if self.logFrame!=None:
+           self.logFrame.unshow()
+       if self.btnBack!=None:
+           self.btnBack.pack_forget()
+       self.coreFrame = Frame(self.root, bg='grey', bd=5)
+       self.checkRoleBox=Checkbutton(self.coreFrame,text='client',variable=self.roleVarClient)
+       self.registrationButton=Button(self.coreFrame,text='Register',width=25, command =self.registerMethod)
+       self.loginationButton=Button(self.coreFrame,text='Login',width=25, command =self.loginationMethod)
+       self.pack()
+#-----------------------------------------------------------------------------------------------------------------------
+    def unpackMainComponents(self):
+        self.coreFrame.pack_forget()
+        self.checkRoleBox.pack_forget()
+        self.registrationButton.pack_forget()
+        self.loginationButton.pack_forget()
 #-----------------------------------------------------------------------------------------------------------------------
     def pack(self):
-        checkRoleBox.pack()
-
-        registrationButton.pack()
-        loginationButton.pack()
-        
-        regFrame.pack()
-        buttonReg.pack()
-        buttonReg1.pack()
-
-        logFrame.pack()
-        buttonLog.pack()
-        buttonLog1.pack()
+        self.coreFrame.pack()
+        self.checkRoleBox.pack()
+        self.registrationButton.pack()
+        self.loginationButton.pack()
 #-----------------------------------------------------------------------------------------------------------------------
     def show(self):
         print(self.hidden)

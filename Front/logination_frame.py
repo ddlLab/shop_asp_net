@@ -1,8 +1,10 @@
 ﻿from tkinter import *
 
 class LoginationFrame:
-    def __init__(self,root):
+    def __init__(self,root, coreFrame):
         self.root = root
+        self.mainFrame = coreFrame
+        print('roleVarClient:',self.mainFrame.roleVarClient.get())
         self._initVars()
         self.loginationFrame = Frame(self.root, bg='grey', bd=5)
         self.lblLog = Label(self.loginationFrame , text='Logination', bg='gray')
@@ -11,16 +13,17 @@ class LoginationFrame:
         self.entryLogEmail = Entry(self.loginationFrame, width = 25,textvariable = self.emailText)
         self.entryLogPass = Entry(self.loginationFrame, width = 25,textvariable = self.passText)
         self.buttonLog = Button(self.loginationFrame, text='Login', width = 25)
+        self.pack()
 #-----------------------------------------------------------------------------------------------------------------------
     def _initVars(self):
         self.emailText = StringVar()
         self.emailText.set('email')
         self.passText = StringVar()
         self.passText.set('password')
-        self.hidden = False
+        self.hidden = True
 #-----------------------------------------------------------------------------------------------------------------------
     def pack(self):
-        self.loginationFrame.pack(side=LEFT)
+        self.loginationFrame.pack()
         self.lblLog.pack()
         self.lblLogEmail.pack()
         self.entryLogEmail.pack()
@@ -31,7 +34,7 @@ class LoginationFrame:
     def show(self):
         print(self.hidden)
         if(self.hidden):
-            self.loginationFrame.pack(side=LEFT)
+            self.loginationFrame.pack()
             self.hidden = False
 # -----------------------------------------------------------------------------------------------------------------------
     def unshow(self):
