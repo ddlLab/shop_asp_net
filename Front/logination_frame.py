@@ -1,4 +1,5 @@
 ﻿from tkinter import *
+import front_http_requests
 
 class LoginationFrame:
     def __init__(self,root, coreFrame):
@@ -12,7 +13,7 @@ class LoginationFrame:
         self.lblLogPass = Label(self.loginationFrame, text='Type your password',bg='gray')
         self.entryLogEmail = Entry(self.loginationFrame, width = 25,textvariable = self.emailText)
         self.entryLogPass = Entry(self.loginationFrame, width = 25,textvariable = self.passText)
-        self.buttonLog = Button(self.loginationFrame, text='Login', width = 25)
+        self.buttonLog = Button(self.loginationFrame, text='Login', width = 25,command=self.login)
         self.pack()
 #-----------------------------------------------------------------------------------------------------------------------
     def _initVars(self):
@@ -42,3 +43,7 @@ class LoginationFrame:
         if(not(self.hidden)):
             self.loginationFrame.pack_forget()
             self.hidden = True
+# -----------------------------------------------------------------------------------------------------------------------
+    def login(self):
+        res=front_http_requests.login(self.mainFrame.roleVarClient.get(),self.emailText.get(),self.passText.get())
+        print(res) 

@@ -1,8 +1,11 @@
 from tkinter import *
+import requests
 
 class RegistrationFrame:
-    def __init__(self, root):
+    def __init__(self, root, coreFrame):
         self.root = root
+        self.mainFrame = coreFrame
+        print('roleVarClient:',self.mainFrame.roleVarClient.get())
         self._initVars()
         self.registerFrame = Frame(self.root, bg='grey', bd=5)
         self.lblReg = Label(self.registerFrame, text='Registration', bg='gray')
@@ -46,3 +49,4 @@ class RegistrationFrame:
         if(not(self.hidden)):
             self.registerFrame.pack_forget()
             self.hidden = True
+# -----------------------------------------------------------------------------------------------------------------------

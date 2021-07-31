@@ -18,7 +18,7 @@ class CoreFrame:
     def registerMethod(self):
         self.unpackMainComponents()
 
-        self.regFrame = RegistrationFrame(self.root)
+        self.regFrame = RegistrationFrame(self.root, self)
         self.regFrame.show()
         self.btnBack=Button(self.root,text='Back',width=25, command =self.initMainComponents )
         self.btnBack.pack()
@@ -45,7 +45,7 @@ class CoreFrame:
        if self.btnBack!=None:
            self.btnBack.pack_forget()
        self.coreFrame = Frame(self.root, bg='grey', bd=5)
-       self.checkRoleBox=Checkbutton(self.coreFrame,text='client',variable=self.roleVarClient)
+       self.checkRoleBox=Checkbutton(self.coreFrame,text='Saler',variable=self.roleVarClient)
        self.registrationButton=Button(self.coreFrame,text='Register',width=25, command =self.registerMethod)
        self.loginationButton=Button(self.coreFrame,text='Login',width=25, command =self.loginationMethod)
        self.pack()
