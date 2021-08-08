@@ -25,6 +25,17 @@ def register(type:int,email:str,password:str,nickname:str):
 
   return resp.json()
 
+def register_Fin(type:int,code:str):
+  url = 'https://localhost:44388/api/register/register-fininsh'
+  myobj = {
+         "type":type,
+         "code":code
+          }
+  requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
+  resp = requests.post(url, json = myobj,verify=False)
+
+  return resp.json()
+
 def card_update(type:int,email:str,paycard:str):
   url = 'https://localhost:44388/api/paycard/update-start'
   myobj = {

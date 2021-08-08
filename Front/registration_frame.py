@@ -1,5 +1,5 @@
 from tkinter import *
-import requests
+import front_http_requests
 
 class RegistrationFrame:
     def __init__(self, root, coreFrame):
@@ -15,16 +15,16 @@ class RegistrationFrame:
         self.entryRegEmail = Entry(self.registerFrame,textvariable=self.emailText,width=25)
         self.entryRegNick = Entry(self.registerFrame, textvariable=self.nickText, width=25)
         self.entryRegPass = Entry(self.registerFrame, textvariable=self.passText, width=25)
-        self.buttonReg = Button(self.registerFrame, text='Create', width=25)
+        self.buttonReg = Button(self.registerFrame, text='Create', width=25,command=self.register)
         self.pack()
 #-----------------------------------------------------------------------------------------------------------------------
     def _initVars(self):
         self.emailText = StringVar()
-        self.emailText.set('email')
+        self.emailText.set('karl.evgrafovich@gmail.com')
         self.nickText = StringVar()
-        self.nickText.set('nickname')
+        self.nickText.set('Jugde')
         self.passText = StringVar()
-        self.passText.set('password')
+        self.passText.set('Hello_there')
         self.hidden = True
 # -----------------------------------------------------------------------------------------------------------------------
     def pack(self):
@@ -50,3 +50,19 @@ class RegistrationFrame:
             self.registerFrame.pack_forget()
             self.hidden = True
 # -----------------------------------------------------------------------------------------------------------------------
+    def register(self):
+        res=front_http_requests.register(self.mainFrame.roleVarClient.get(),self.emailText.get(),self.passText.get(),self.nickText.get())
+        print(res)
+        if res==0:
+            self.lblRegCode     = Label(self.registerFrame, text='Type your code', bg='gray')
+            self.entryRegCode   = Entry(self.registerFrame,textvariable=self.codeText,width=25)
+            self.buttonRegFin   = Button(self.registerFrame, text='Finish', width=25,command=self.finish)
+            self.codeText = StringVar()
+            self.codeText.set('code')
+            self.lblRegCode.pack()
+            self.entryRegCode.pack()
+            self.buttonRegFin.pack()
+# -----------------------------------------------------------------------------------------------------------------------
+    def finish(self):
+        end=front_http_requests.register_Fin(self.mainFrame.roleVarClient.get(),self.codeText.get())
+        print(end)

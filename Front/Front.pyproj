@@ -35,6 +35,9 @@
     <Compile Include="pass_reset_start_frame.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="register_end_frame.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="registration_frame.py" />
     <Compile Include="main.py" />
     <Compile Include="updatePaycardFinish_frame.py" />
