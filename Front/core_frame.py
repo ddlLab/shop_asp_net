@@ -12,7 +12,6 @@ class CoreFrame:
     def __init__(self,root):
        self.root = root
        self._initVars()
-       
        self.initMainComponents()
 #-----------------------------------------------------------------------------------------------------------------------
     def registerMethod(self):
@@ -36,6 +35,8 @@ class CoreFrame:
         self.btnBack  = None
         self.roleVarClient=IntVar()
         self.hidden = True
+        self.lblIdText = StringVar()
+        self.lblIdText.set('Id:unknown')
 #-----------------------------------------------------------------------------------------------------------------------
     def initMainComponents(self):
        if self.regFrame!=None:
@@ -51,10 +52,6 @@ class CoreFrame:
        self.loginationButton=Button(self.coreFrame,text='Login',width=25, command =self.loginationMethod)
        self._initVars()
        self.pack()
-#-----------------------------------------------------------------------------------------------------------------------
-    def _initVars(self):
-        self.lblIdText = StringVar()
-        self.lblIdText.set('Id:unknown')
 #-----------------------------------------------------------------------------------------------------------------------
     def unpackMainComponents(self):
         self.coreFrame.pack_forget()
@@ -72,7 +69,7 @@ class CoreFrame:
 #-----------------------------------------------------------------------------------------------------------------------
     def pack(self):
         self.coreFrame.pack()
-        self.lblID.pack_forget()
+        self.lblID.pack()
         self.checkRoleBox.pack()
         self.registrationButton.pack()
         self.loginationButton.pack()
