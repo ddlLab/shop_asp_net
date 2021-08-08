@@ -55,16 +55,3 @@ class RegistrationFrame:
         print(res)
         if int(res['result'])==0:
             self.mainFrame.onRegisterStarted()
-            '''
-            self.lblRegCode     = Label(self.registerFrame, text='Type your code', bg='gray')
-            self.entryRegCode   = Entry(self.registerFrame,textvariable=self.codeText,width=25)
-            self.buttonRegFin   = Button(self.registerFrame, text='Finish', width=25,command=self.finish)
-            self.codeText = StringVar()
-            self.codeText.set('code')
-            self.lblRegCode.pack()
-            self.entryRegCode.pack()
-            self.buttonRegFin.pack()'''
-# -----------------------------------------------------------------------------------------------------------------------
-    def finish(self):
-        end=front_http_requests.register_Fin(self.mainFrame.roleVarClient.get(),self.codeText.get())
-        print(end)

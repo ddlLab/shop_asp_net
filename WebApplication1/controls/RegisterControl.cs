@@ -88,11 +88,33 @@ namespace WebApplication1.controls
             }
             query.Execute();
             requests.Remove(request);
-            return new RegisterFinishAck(RegisterFinishAck.Result.OK);
+            return new RegisterFinishAck(RegisterFinishAck.Result.OK, (int) getIDbyMail(request.msg.email, msg.type));
+        }
+
+        long getIDbyMail(string email, int type)
+        {
+            if (type == 0)
+            {
+                QuerySelectClientByEmailNick query = new QuerySelectClientByEmailNick("",
+                                                                                      email,
+                                                                                      DBUtils.GetDBConnection(),
+                                                                                      null);
+                query.Execute();
+                return query.clients[0].Id;
+            }
+            else
+            {
+                QuerySelectSalerByEmailNick query = new QuerySelectSalerByEmailNick("",
+                                                                                    email,
+                                                                                    DBUtils.GetDBConnection(),
+                                                                                    null);
+                query.Execute();
+                return query.salers[0].Id;
+            }
         }
         protected bool IsUserRegistred(RegisterStartReq msg)
         {
-            if(msg.type == 0)
+            if (msg.type == 0)
             {
                 QuerySelectClientByEmailNick query = new QuerySelectClientByEmailNick("",
                                                                                       msg.email,
