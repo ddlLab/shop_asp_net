@@ -45,24 +45,34 @@ class CoreFrame:
        if self.btnBack!=None:
            self.btnBack.pack_forget()
        self.coreFrame = Frame(self.root, bg='grey', bd=5)
+       self.lblID = Label(self.coreFrame, width = 25,textvariable = self.lblIdText)
        self.checkRoleBox=Checkbutton(self.coreFrame,text='Saler',variable=self.roleVarClient)
        self.registrationButton=Button(self.coreFrame,text='Register',width=25, command =self.registerMethod)
        self.loginationButton=Button(self.coreFrame,text='Login',width=25, command =self.loginationMethod)
+       self._initVars()
        self.pack()
+#-----------------------------------------------------------------------------------------------------------------------
+    def _initVars(self):
+        self.lblIdText = StringVar()
+        self.lblIdText.set('Id:unknown')
 #-----------------------------------------------------------------------------------------------------------------------
     def unpackMainComponents(self):
         self.coreFrame.pack_forget()
         self.checkRoleBox.pack_forget()
         self.registrationButton.pack_forget()
         self.loginationButton.pack_forget()
+        self.lblID.pack_forget()
 #-----------------------------------------------------------------------------------------------------------------------
     def onRegisterStarted(self):
        self.regFrame.unshow()
        self.regFrame = RegistrationFinishFrame(self.root, self)
        self.regFrame.show()
+       #todo : after registerFinish response setup to coreFrame.lblIdText user id 
+       #p.s. do it on registerFinish Frame layer
 #-----------------------------------------------------------------------------------------------------------------------
     def pack(self):
         self.coreFrame.pack()
+        self.lblID.pack_forget()
         self.checkRoleBox.pack()
         self.registrationButton.pack()
         self.loginationButton.pack()

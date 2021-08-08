@@ -46,4 +46,5 @@ class LoginationFrame:
 # -----------------------------------------------------------------------------------------------------------------------
     def login(self):
         res=front_http_requests.login(self.mainFrame.roleVarClient.get(),self.emailText.get(),self.passText.get())
-        print(res)                      
+        print(res)
+        #todo : setup to coreFrame.lblIdText user id 
