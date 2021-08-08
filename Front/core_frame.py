@@ -56,6 +56,11 @@ class CoreFrame:
         self.registrationButton.pack_forget()
         self.loginationButton.pack_forget()
 #-----------------------------------------------------------------------------------------------------------------------
+    def onRegisterStarted(self):
+       self.regFrame.unshow()
+       self.regFrame = RegistrationFinishFrame(self.root, self)
+       self.regFrame.show()
+#-----------------------------------------------------------------------------------------------------------------------
     def pack(self):
         self.coreFrame.pack()
         self.checkRoleBox.pack()
