@@ -1,5 +1,6 @@
 from tkinter import *
 import front_http_requests
+from registrationFinish_frame import RegistrationFinishFrame
 
 class RegistrationFrame:
     def __init__(self, root, coreFrame):
@@ -20,11 +21,11 @@ class RegistrationFrame:
 #-----------------------------------------------------------------------------------------------------------------------
     def _initVars(self):
         self.emailText = StringVar()
-        self.emailText.set('karl.evgrafovich@gmail.com')
+        self.emailText.set('dima280803@gmail.com')
         self.nickText = StringVar()
-        self.nickText.set('Jugde')
+        self.nickText.set('dddmytro')
         self.passText = StringVar()
-        self.passText.set('Hello_there')
+        self.passText.set('11qqAAzz')
         self.hidden = True
 # -----------------------------------------------------------------------------------------------------------------------
     def pack(self):
@@ -55,6 +56,7 @@ class RegistrationFrame:
         print(res)
         if int(res['result'])==0:
             self.mainFrame.onRegisterStarted()
+           
             '''
             self.lblRegCode     = Label(self.registerFrame, text='Type your code', bg='gray')
             self.entryRegCode   = Entry(self.registerFrame,textvariable=self.codeText,width=25)

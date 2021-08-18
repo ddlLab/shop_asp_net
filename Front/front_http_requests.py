@@ -26,7 +26,7 @@ def register(type:int,email:str,password:str,nickname:str):
   return resp.json()
 
 def register_Fin(type:int,code:str):
-  url = 'https://localhost:44388/api/register/register-fininsh'
+  url = 'https://localhost:44388/api/register/register-finish'
   myobj = {
          "type":type,
          "code":code

@@ -18,9 +18,9 @@ class LoginationFrame:
 #-----------------------------------------------------------------------------------------------------------------------
     def _initVars(self):
         self.emailText = StringVar()
-        self.emailText.set('email')
+        self.emailText.set('dima280803@gmail.com')
         self.passText = StringVar()
-        self.passText.set('password')
+        self.passText.set('11qqAAzz')
         self.hidden = True
 #-----------------------------------------------------------------------------------------------------------------------
     def pack(self):
@@ -47,4 +47,5 @@ class LoginationFrame:
     def login(self):
         res=front_http_requests.login(self.mainFrame.roleVarClient.get(),self.emailText.get(),self.passText.get())
         print(res)
-        #todo : setup to coreFrame.lblIdText user id 
+        if res != None and res["result"] == 0:
+            self.mainFrame.loginationMethodFinished(res["user_id"])

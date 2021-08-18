@@ -3,5 +3,7 @@ bin/
 *.suo
 packages/
 .vs/
-/db_queries/0.base/DBUtils.cs
+/db_queries/0.base*/
 /Front/__pycache__/*
+/PythonApplication1/__pycache__*/
+*/[DBUtils].cs

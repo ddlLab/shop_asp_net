@@ -5,6 +5,7 @@ from pass_reset_finish_frame import PassResetFinishFrame
 from pass_reset_start_frame import PassResetStartFrame
 from logination_frame import LoginationFrame
 from registration_frame import RegistrationFrame
+from registrationFinish_frame import RegistrationFinishFrame
 from updatePaycardStart_frame import StartUptCardFrame
 from updatePaycardFinish_frame import FinishUptCardFrame
 
@@ -16,7 +17,6 @@ class CoreFrame:
 #-----------------------------------------------------------------------------------------------------------------------
     def registerMethod(self):
         self.unpackMainComponents()
-
         self.regFrame = RegistrationFrame(self.root, self)
         self.regFrame.show()
         self.btnBack=Button(self.root,text='Back',width=25, command =self.initMainComponents )
@@ -28,6 +28,13 @@ class CoreFrame:
         self.logFrame.show()
         self.btnBack=Button(self.root,text='Back',width=25, command =self.initMainComponents )
         self.btnBack.pack()
+#-----------------------------------------------------------------------------------------------------------------------
+    def loginationMethodFinished(self , id):
+        self.logFrame.unshow()
+        self.btnBack.pack_forget()
+        self.registrationButton.pack_forget()
+        self.lblID['textvariable'] = self.lblIdText
+        self.lblIdText.set(f'Id: {id}')
 #-----------------------------------------------------------------------------------------------------------------------
     def _initVars(self):
         self.logFrame = None
@@ -46,7 +53,7 @@ class CoreFrame:
        if self.btnBack!=None:
            self.btnBack.pack_forget()
        self.coreFrame = Frame(self.root, bg='grey', bd=5)
-       self.lblID = Label(self.coreFrame, width = 25,textvariable = self.lblIdText)
+       self.lblID = Label(self.root, width = 25,textvariable = self.lblIdText)
        self.checkRoleBox=Checkbutton(self.coreFrame,text='Saler',variable=self.roleVarClient)
        self.registrationButton=Button(self.coreFrame,text='Register',width=25, command =self.registerMethod)
        self.loginationButton=Button(self.coreFrame,text='Login',width=25, command =self.loginationMethod)
@@ -58,7 +65,6 @@ class CoreFrame:
         self.checkRoleBox.pack_forget()
         self.registrationButton.pack_forget()
         self.loginationButton.pack_forget()
-        self.lblID.pack_forget()
 #-----------------------------------------------------------------------------------------------------------------------
     def onRegisterStarted(self):
        self.regFrame.unshow()
