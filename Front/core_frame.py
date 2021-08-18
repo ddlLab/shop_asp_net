@@ -5,7 +5,7 @@ from pass_reset_finish_frame import PassResetFinishFrame
 from pass_reset_start_frame import PassResetStartFrame
 from logination_frame import LoginationFrame
 from registration_frame import RegistrationFrame
-from registrationFinish_frame import RegistrationFinishFrame
+from register_end_frame import RegistrationFinishFrame
 from updatePaycardStart_frame import StartUptCardFrame
 from updatePaycardFinish_frame import FinishUptCardFrame
 
