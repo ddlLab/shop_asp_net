@@ -34,5 +34,7 @@ class RegistrationFinishFrame:
             self.hidden = True
 # -----------------------------------------------------------------------------------------------------------------------
     def finish(self):
-        end=front_http_requests.register_Fin(self.mainFrame.roleVarClient.get(),self.codeText.get())
-        print(end)
+        res=front_http_requests.register_Fin(self.mainFrame.roleVarClient.get(),self.codeText.get())
+        print(res)
+        if res != None and res["result"] == 0:
+            self.mainFrame.registerMethodFinished(res["user_id"])

@@ -22,6 +22,13 @@ class CoreFrame:
         self.btnBack=Button(self.root,text='Back',width=25, command =self.initMainComponents )
         self.btnBack.pack()
 #-----------------------------------------------------------------------------------------------------------------------
+    def registerMethodFinished(self , id):
+        self.regFrame.unshow()
+        self.btnBack.pack_forget()
+        self.loginationButton.pack_forget()
+        self.lblID['textvariable'] = self.lblIdText
+        self.lblIdText.set(f'Id: {id}')
+#-----------------------------------------------------------------------------------------------------------------------
     def loginationMethod(self):
         self.unpackMainComponents()
         self.logFrame = LoginationFrame(self.root, self)

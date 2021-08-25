@@ -21,11 +21,11 @@ class RegistrationFrame:
 #-----------------------------------------------------------------------------------------------------------------------
     def _initVars(self):
         self.emailText = StringVar()
-        self.emailText.set('dima280803@gmail.com')
+        self.emailText.set('25710320@257gymnasium.com')
         self.nickText = StringVar()
-        self.nickText.set('dddmytro')
+        self.nickText.set('Алукард')
         self.passText = StringVar()
-        self.passText.set('11qqAAzz')
+        self.passText.set('BillyYeah')
         self.hidden = True
 # -----------------------------------------------------------------------------------------------------------------------
     def pack(self):
