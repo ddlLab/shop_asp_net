@@ -10,7 +10,7 @@ from updatePaycardStart_frame import StartUptCardFrame
 from updatePaycardFinish_frame import FinishUptCardFrame
 
 class CoreFrame:
-    def __init__(self,root):
+    def __init__(self  ,root):
        self.root = root
        self._initVars()
        self.initMainComponents()
